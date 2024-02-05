@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
 
 const deafultFormFields = {
     displayName: '',
     email: '',
     password: '',
     confirmPassword: ''
-}
+};
 
 const SignUpForm = () => {
     const [formFields, setFormFields] = useState(deafultFormFields);
@@ -37,6 +38,6 @@ const SignUpForm = () => {
             </form>
         </div>
     );
-}
+};
 
 export default SignUpForm;
