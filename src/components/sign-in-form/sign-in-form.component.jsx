@@ -26,7 +26,16 @@ const SignInForm = () => {
             await resetFormFields();
         }
         catch(error) {
-
+            switch(error.code){
+                case "auth/invalid-credential":
+                    alert("Incorrect Email or Password");
+                    break;
+                case "auth/user-not-found":
+                    alert("No User Associated With This Email");
+                    break;
+                default:
+                    console.log(error);
+            }
         }
     }
 
@@ -42,7 +51,7 @@ const SignInForm = () => {
     }
 
     return(
-        <div className="sign-up-container">
+        <div className="sign-in-container">
             <h2>Already have an account?</h2>
             <span>Sign In With Your Email And Password</span>
             <form onSubmit={handleSubmit}>
@@ -50,7 +59,7 @@ const SignInForm = () => {
                 <FormInput label="Password" type="password" required onChange={handleChange} name="password" value={password} />
                 <div className="buttons-container">
                     <Button type="submit">Sign In</Button>
-                    <Button buttonType="google" onClick={signInWithGoogle}>Sign In With Google</Button>
+                    <Button type="button" buttonType="google" onClick={signInWithGoogle}>Sign In With Google</Button>
                 </div>
             </form>
         </div>
