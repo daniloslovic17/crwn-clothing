@@ -6,10 +6,20 @@ import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { UserContext } from "../../context/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { CartContext } from "../../context/cart.context";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  
+  const { display, setDisplay } = useContext(CartContext);
+
+  const handleDropdown = () => {
+    if(display === "none"){
+      setDisplay("flex");
+    } else {
+      setDisplay("none");
+    }
+  }
+
   return(
     <Fragment>
       <div className="navigation">
@@ -29,9 +39,9 @@ const Navigation = () => {
               </Link>
             )
           }
-          <CartIcon />
+          <CartIcon handleDropdown={handleDropdown} />
         </div>
-        <CartDropdown />
+        <CartDropdown display={display} />
       </div>
       <Outlet />
     </Fragment>
