@@ -13,11 +13,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
         <UserProvider>
-          <CartProvider>
             <ProductsProvider>
-              <App />
+              <CartProvider>
+                <App />
+              </CartProvider>
             </ProductsProvider>
-          </CartProvider>
         </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

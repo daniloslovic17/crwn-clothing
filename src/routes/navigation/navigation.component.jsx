@@ -10,15 +10,7 @@ import { CartContext } from "../../context/cart.context";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  const { display, setDisplay } = useContext(CartContext);
-
-  const handleDropdown = () => {
-    if(display === "none"){
-      setDisplay("flex");
-    } else {
-      setDisplay("none");
-    }
-  }
+  const { isCartOpen } = useContext(CartContext);
 
   return(
     <Fragment>
@@ -39,9 +31,9 @@ const Navigation = () => {
               </Link>
             )
           }
-          <CartIcon handleDropdown={handleDropdown} />
+          <CartIcon />
         </div>
-        <CartDropdown display={display} />
+        {isCartOpen && <CartDropdown />} {/*if both are true, it will return last value*/}
       </div>
       <Outlet />
     </Fragment>
