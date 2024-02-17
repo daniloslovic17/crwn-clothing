@@ -1,12 +1,17 @@
 import { Fragment, useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
-import './navigation.styles.scss';
+
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
+
 import { UserContext } from "../../contexts/user.context";
-import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { CartContext } from "../../contexts/cart.context";
+
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+
+import { NavigationContainer, LogoContainer, NavLinks, NavLink } from './navigation.styles.jsx';
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
@@ -14,27 +19,27 @@ const Navigation = () => {
 
   return(
     <Fragment>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
+      <NavigationContainer>
+        <LogoContainer className="logo-container" to="/">
           <CrwnLogo className="logo" />
-        </Link>
-        <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
+        </LogoContainer>
+        <NavLinks>
+          <NavLink to="/shop">
               SHOP
-          </Link>
+          </NavLink>
           {
             currentUser ? (
-              <span className="nav-link" onClick={signOutUser}>SIGN OUT</span>
+              <NavLink as="span" onClick={signOutUser}>SIGN OUT</NavLink>
               ) : (
-              <Link className="nav-link" to="/auth">
+              <NavLink to="/auth">
                   SIGN IN
-              </Link>
+              </NavLink>
             )
           }
           <CartIcon />
-        </div>
+        </NavLinks>
         {isCartOpen && <CartDropdown />} {/*if both are true, it will return last value*/}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </Fragment>
   );
