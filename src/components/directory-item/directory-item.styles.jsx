@@ -10,7 +10,7 @@ export const BackgroundImage = styled.div`
 
 export const Body = styled.div`
     height: 90px;
-    padding: 0 25px;
+    padding: 0 35px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,6 +44,10 @@ export const DirectoryItemContainer = styled.div`
     border: 1px solid black;
     margin: 0 7.5px 15px;
     overflow: hidden;
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 
     &:hover {
         cursor: pointer;
