@@ -16,6 +16,7 @@
     "react-scripts": "^5.0.1",
     "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
     "reselect": "^5.1.0",
     "sass": "^1.70.0",
     "sort-by": "^0.0.2",
