@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^16.4.5",
     "firebase": "^10.6.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",
@@ -24,6 +25,7 @@
     "reselect": "^5.1.0",
     "sass": "^1.70.0",
     "sort-by": "^0.0.2",
+    "stripe": "^14.20.0",
     "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"
   },
